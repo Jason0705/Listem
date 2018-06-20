@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		527A88A098566961193FE15C /* Pods_Listem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2B164595C9D4163EE39C60 /* Pods_Listem.framework */; };
 		D14921B520D8749F00F89214 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14921B420D8749F00F89214 /* AppDelegate.swift */; };
 		D14921B720D8749F00F89214 /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14921B620D8749F00F89214 /* ToDoListViewController.swift */; };
 		D14921BA20D874A000F89214 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D14921B820D874A000F89214 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1CFC5B79A6269EF769CDEBCE /* Pods-Listem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Listem.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Listem/Pods-Listem.debug.xcconfig"; sourceTree = "<group>"; };
 		D14921B120D8749F00F89214 /* Listem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Listem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D14921B420D8749F00F89214 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D14921B620D8749F00F89214 /* ToDoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
@@ -26,6 +28,8 @@
 		D14921C020D874A100F89214 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D14921CD20D9F20C00F89214 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		D18042BB20DAC5790006F0B9 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		ED2B164595C9D4163EE39C60 /* Pods_Listem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Listem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFF2AA5FC00821ECCED7DEEF /* Pods-Listem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Listem.release.xcconfig"; path = "Pods/Target Support Files/Pods-Listem/Pods-Listem.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +37,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				527A88A098566961193FE15C /* Pods_Listem.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C03D537E2EC9CE950765D6F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1CFC5B79A6269EF769CDEBCE /* Pods-Listem.debug.xcconfig */,
+				EFF2AA5FC00821ECCED7DEEF /* Pods-Listem.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D14921A820D8749F00F89214 = {
 			isa = PBXGroup;
 			children = (
 				D14921B320D8749F00F89214 /* Listem */,
 				D14921B220D8749F00F89214 /* Products */,
+				0C03D537E2EC9CE950765D6F /* Pods */,
+				ECB46A90EAC736DA0ADE5293 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,6 +118,14 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		ECB46A90EAC736DA0ADE5293 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ED2B164595C9D4163EE39C60 /* Pods_Listem.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -109,9 +133,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D14921C320D874A100F89214 /* Build configuration list for PBXNativeTarget "Listem" */;
 			buildPhases = (
+				149C5CFC6E7199E19F7CCF96 /* [CP] Check Pods Manifest.lock */,
 				D14921AD20D8749F00F89214 /* Sources */,
 				D14921AE20D8749F00F89214 /* Frameworks */,
 				D14921AF20D8749F00F89214 /* Resources */,
+				8EB7CC6372841C9FC2C13B32 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -167,6 +193,47 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		149C5CFC6E7199E19F7CCF96 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Listem-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8EB7CC6372841C9FC2C13B32 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Listem/Pods-Listem-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Listem/Pods-Listem-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D14921AD20D8749F00F89214 /* Sources */ = {
@@ -318,6 +385,7 @@
 		};
 		D14921C420D874A100F89214 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CFC5B79A6269EF769CDEBCE /* Pods-Listem.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -336,6 +404,7 @@
 		};
 		D14921C520D874A100F89214 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFF2AA5FC00821ECCED7DEEF /* Pods-Listem.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
