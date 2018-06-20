@@ -45,8 +45,17 @@ class CategoryViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         saveCategories()
+        performSegue(withIdentifier: "goToItems", sender: self)
         
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! ToDoListViewController
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destinationVC.selectedCategory = categoryArray[indexPath.row]
+        }
     }
     
     
