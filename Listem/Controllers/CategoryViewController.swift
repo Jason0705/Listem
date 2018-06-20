@@ -7,10 +7,12 @@
 //
 
 import UIKit
-import CoreData
+import RealmSwift
 
 class CategoryViewController: UITableViewController {
 
+    let realm = try! Realm()
+    
     var categoryArray = [Category]()
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -19,7 +21,7 @@ class CategoryViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadCategories()
+        //loadCategories()
     }
 
     
@@ -44,7 +46,7 @@ class CategoryViewController: UITableViewController {
     //MARK: - Table View Delegate Methods
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        saveCategories()
+        //saveCategories()
         performSegue(withIdentifier: "goToItems", sender: self)
         
         tableView.deselectRow(at: indexPath, animated: true)
@@ -61,10 +63,12 @@ class CategoryViewController: UITableViewController {
     
     //MARK: - Data Manipulation Methods
     
-    func saveCategories() {
+    func saveCategories(category: Category) {
         
         do {
-            try context.save()
+            try realm.write {
+                realm.add(category)
+            }
         }
         catch {
             print("Error saving category, \(error)")
@@ -73,17 +77,17 @@ class CategoryViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    func loadCategories(with request: NSFetchRequest<Category> = Category.fetchRequest()) {
-        
-        do {
-            categoryArray = try context.fetch(request)
-        }
-        catch {
-            print("Error loading category, \(error)")
-        }
-        
-        tableView.reloadData()
-    }
+//    func loadCategories(with request: NSFetchRequest<Category> = Category.fetchRequest()) {
+//
+//        do {
+//            categoryArray = try context.fetch(request)
+//        }
+//        catch {
+//            print("Error loading category, \(error)")
+//        }
+//
+//        tableView.reloadData()
+//    }
     
     
     
@@ -96,13 +100,13 @@ class CategoryViewController: UITableViewController {
         let alert = UIAlertController(title: "Add A New Category", message: "", preferredStyle: .alert)
         
         let actionAdd = UIAlertAction(title: "Add Category", style: .default) { (action) in
-            let newCategory = Category(context: self.context)
+            let newCategory = Category()
             
-            newCategory.name = textField.text
+            newCategory.name = textField.text!
             
             self.categoryArray.append(newCategory)
             
-            self.saveCategories()
+            self.saveCategories(category: newCategory)
         }
         
         let actionCancel = UIAlertAction(title: "Cancel", style: .default) { (action) in
