@@ -80,7 +80,7 @@ class ToDoListViewController: UITableViewController {
         
         let alert = UIAlertController(title: "Add New Listem Item", message: "", preferredStyle: .alert)
         
-        let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
+        let actionAdd = UIAlertAction(title: "Add Item", style: .default) { (action) in
             // what will happen once the user clicked Add Item button on UIAlert
             
             let newItem = Item(context: self.context)
@@ -93,19 +93,24 @@ class ToDoListViewController: UITableViewController {
             self.saveItems()
         }
         
+        let actionCancel = UIAlertAction(title: "Cancel", style: .default) { (action) in
+            self.dismiss(animated: true, completion: nil)
+        }
+        
         alert.addTextField { (alertTextField) in
             alertTextField.placeholder = "Create A New Item..."
             textField = alertTextField
         }
         
-        alert.addAction(action)
+        alert.addAction(actionCancel)
+        alert.addAction(actionAdd)
         
         present(alert, animated: true, completion: nil)
         
     }
     
     
-    //MARK: - Model Manupulation Methods
+    //MARK: - Model Manipulation Methods
     
     func saveItems() {
         
